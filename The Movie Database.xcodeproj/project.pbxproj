@@ -13,6 +13,10 @@
 		651A0A72218C95BB009E3AC4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 651A0A70218C95BB009E3AC4 /* LaunchScreen.storyboard */; };
 		651A0A7D218C95BB009E3AC4 /* The_Movie_DatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651A0A7C218C95BB009E3AC4 /* The_Movie_DatabaseTests.swift */; };
 		651A0A88218C95BB009E3AC4 /* The_Movie_DatabaseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651A0A87218C95BB009E3AC4 /* The_Movie_DatabaseUITests.swift */; };
+		651A0A98218CA8D4009E3AC4 /* TMDBNowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651A0A97218CA8D4009E3AC4 /* TMDBNowPlayingViewController.swift */; };
+		651A0A9B218CA988009E3AC4 /* TMDBConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651A0A9A218CA988009E3AC4 /* TMDBConstants.swift */; };
+		651A0A9D218CAC4A009E3AC4 /* TMDBMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651A0A9C218CAC4A009E3AC4 /* TMDBMovie.swift */; };
+		651A0A9F218CB0FE009E3AC4 /* TMDBClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651A0A9E218CB0FE009E3AC4 /* TMDBClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +49,10 @@
 		651A0A83218C95BB009E3AC4 /* The Movie DatabaseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "The Movie DatabaseUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		651A0A87218C95BB009E3AC4 /* The_Movie_DatabaseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = The_Movie_DatabaseUITests.swift; sourceTree = "<group>"; };
 		651A0A89218C95BB009E3AC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		651A0A97218CA8D4009E3AC4 /* TMDBNowPlayingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBNowPlayingViewController.swift; sourceTree = "<group>"; };
+		651A0A9A218CA988009E3AC4 /* TMDBConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBConstants.swift; sourceTree = "<group>"; };
+		651A0A9C218CAC4A009E3AC4 /* TMDBMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBMovie.swift; sourceTree = "<group>"; };
+		651A0A9E218CB0FE009E3AC4 /* TMDBClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +103,8 @@
 		651A0A64218C95B9009E3AC4 /* The Movie Database */ = {
 			isa = PBXGroup;
 			children = (
+				651A0A99218CA971009E3AC4 /* Movie Database Model */,
+				651A0A96218CA8AF009E3AC4 /* View Controllers */,
 				651A0A65218C95B9009E3AC4 /* AppDelegate.swift */,
 				651A0A73218C95BB009E3AC4 /* Info.plist */,
 				651A0A95218C98B3009E3AC4 /* View */,
@@ -128,6 +138,24 @@
 				651A0A70218C95BB009E3AC4 /* LaunchScreen.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		651A0A96218CA8AF009E3AC4 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				651A0A97218CA8D4009E3AC4 /* TMDBNowPlayingViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		651A0A99218CA971009E3AC4 /* Movie Database Model */ = {
+			isa = PBXGroup;
+			children = (
+				651A0A9A218CA988009E3AC4 /* TMDBConstants.swift */,
+				651A0A9C218CAC4A009E3AC4 /* TMDBMovie.swift */,
+				651A0A9E218CB0FE009E3AC4 /* TMDBClient.swift */,
+			);
+			path = "Movie Database Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,7 +289,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				651A0A9F218CB0FE009E3AC4 /* TMDBClient.swift in Sources */,
+				651A0A9B218CA988009E3AC4 /* TMDBConstants.swift in Sources */,
+				651A0A9D218CAC4A009E3AC4 /* TMDBMovie.swift in Sources */,
 				651A0A66218C95B9009E3AC4 /* AppDelegate.swift in Sources */,
+				651A0A98218CA8D4009E3AC4 /* TMDBNowPlayingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
