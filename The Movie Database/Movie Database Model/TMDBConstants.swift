@@ -8,6 +8,8 @@
 
 import Foundation
 
+var posterSizes = ["w92", "w154", "w185", "w342", "w500", "w780", "original"]
+
 // MARK: - API Level Constants
 struct API {
     static let Key = "7f8fcbdb965eb49eeae775aec0dd31f8"
@@ -24,6 +26,16 @@ struct ParameterKeys {
     static let RequestToken = "request_token"
     static let Query = "query"
     static let Page = "page"
+}
+
+struct ImageKeys {
+    static let BaseURL = "https://image.tmdb.org/t/p/"
+    
+    // MARK: Poster Sizes
+    struct PosterSizes {
+        static let RowPoster = posterSizes[2]
+        static let DetailPoster = posterSizes[4]
+    }
 }
 
 // MARK: - REST API Methods

@@ -35,6 +35,7 @@ class TMDBNowPlayingViewController: UIViewController {
                     self.movies += movieResults
                     print("~>Number of pages: \(String(describing: result?.total_pages))")
                     print("~>Currently on page: \(String(describing: result?.page))")
+                    
                     DispatchQueue.main.async {
                         self.nowPlayingTableView.reloadData()
                     }
@@ -45,7 +46,17 @@ class TMDBNowPlayingViewController: UIViewController {
                 }
                 
                 
+            } else if let error = error, let retry = error.userInfo["Retry-After"] as? Int {
+                print("Retry after: \(retry) seconds")
+                DispatchQueue.main.async {
+                    Timer.scheduledTimer(withTimeInterval: Double(retry), repeats: false, block: { (_) in
+                        print("~>Retrying now.")
+                        self.loadNowPlayingData(onPage: page)
+                        return
+                    })
+                }
             } else {
+                print("~>Error code: \(String(describing: error?.code))")
                 print("~>There was an error: \(String(describing: error?.userInfo))")
             }
         }
@@ -75,7 +86,25 @@ extension TMDBNowPlayingViewController: UITableViewDelegate, UITableViewDataSour
         cell.movieTitle.text = movie.title
         cell.movieOverview.text = movie.overview
         
-        // load movie poster async
+        // start indicator for async poster load
+        cell.activityIndicator.startAnimating()
+        
+        // set the poster image
+        if let posterPath = movie.poster_path {
+            let _ = client.taskForGETImage(ImageKeys.PosterSizes.DetailPoster, filePath: posterPath, completionHandlerForImage: { (imageData, error) in
+                if let image = UIImage(data: imageData!) {
+                    // update images in main dispatch queue
+                    DispatchQueue.main.async {
+                        cell.activityIndicator.alpha = 0.0
+                        cell.activityIndicator.stopAnimating()
+                        cell.moviePoster.image = image
+                    }
+                }
+            })
+        } else {
+            cell.activityIndicator.alpha = 0.0
+            cell.activityIndicator.stopAnimating()
+        }
         
         return cell
     }
