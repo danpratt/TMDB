@@ -23,8 +23,15 @@ struct ParameterKeys {
     static let SessionID = "session_id"
     static let RequestToken = "request_token"
     static let Query = "query"
+    static let Page = "page"
 }
+
+// MARK: - REST API Methods
 
 struct Methods {
     static let NowPlaying = "/movie/now_playing"
+}
+
+struct JSONBodyKeys {
+    static let Results = "results"
 }

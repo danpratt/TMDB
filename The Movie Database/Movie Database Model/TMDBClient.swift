@@ -39,7 +39,7 @@ class TMDBClient {
             
             // Make sure that we got a successful response
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
-                sendError("Your request returned a status code other than 2xx!")
+                sendError("Your request returned a status code of: \(String(describing: (response as? HTTPURLResponse)?.statusCode)) with header fields: \(String(describing: (response as? HTTPURLResponse)?.allHeaderFields))")
                 return
             }
             

@@ -30,36 +30,47 @@ enum genre: Int {
     case Western = 37
 }
 
-struct Movie {
+struct Result: Codable {
     
-    var posterPath: String?
-    var adult: Bool?
-    var overview: String?
-    var releaseDate: String?
-    var genreIDs: [Int]?  // change to enum later
-    var id: Int?
-    var originalTitle: String?
-    var originalLanguage: String?
-    var title: String?
-    var backdroPath: String?
-    var popularity: String?
-    var voteCount: String?
-    var video: String?
-    var voteAverage: String?
+    var page: Int?
+    var results: [Movie]?
+//    var dates: [String: TMDBDates]?
+    var total_pages: Int?
+    var total_results: Int?
     
-}
-
-extension Movie: Codable {
-    
-    func decode(jsonString: String) -> Movie? {
-        let jsonData = jsonString.data(using: .utf8)
+    static func decode(jsonData: Data) -> Result? {
         let decoder = JSONDecoder()
+        print("~>Trying to decode")
         do {
-            let movie = try decoder.decode(Movie.self, from: jsonData!)
-            return movie
-        } catch {
+            let result = try decoder.decode(Result.self, from: jsonData)
+            return result
+        } catch let error {
+            print("Failed decoding with error: \(error)")
             return nil
         }
     }
+}
+
+struct TMDBDates: Codable {
+    var maximum: String?
+    var minimum: String?
+}
+
+struct Movie: Codable {
+    
+    var poster_path: String?
+    var adult: Bool?
+    var overview: String?
+    var release_date: String?
+    var genre_ids: [Int]?
+    var id: Int?
+    var original_title: String?
+    var original_language: String?
+    var title: String?
+    var backdrop_path: String?
+    var popularity: Double?
+    var vote_count: Int?
+    var video: Bool?
+    var vote_average: Double?
     
 }
