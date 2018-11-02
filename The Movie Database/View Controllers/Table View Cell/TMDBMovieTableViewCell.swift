@@ -14,12 +14,5 @@ class TMDBMovieTableViewCell: UITableViewCell {
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var movieOverview: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
-//    override func prepareForReuse() {
-//        moviePoster.image = UIImage(named: "Movie_Poster_Placeholder")
-//        movieTitle.text = ""
-//        movieOverview.text = ""
-//        activityIndicator.stopAnimating()
-//        activityIndicator.hidesWhenStopped = true
-//    }
+
 }

@@ -35,6 +35,7 @@ struct ImageKeys {
     struct PosterSizes {
         static let RowPoster = posterSizes[2]
         static let DetailPoster = posterSizes[4]
+        static let Original = posterSizes[6]
     }
 }
 
@@ -42,6 +43,9 @@ struct ImageKeys {
 
 struct Methods {
     static let NowPlaying = "/movie/now_playing"
+    static let Popular = "/movie/popular"
+    static let TopRated = "/movie/top_rated"
+    static let Upcoming = "/movie/upcoming"
 }
 
 struct JSONBodyKeys {

@@ -1,5 +1,5 @@
 //
-//  TMDBNowPlayingViewController.swift
+//  TMDBPopularViewController.swift
 //  The Movie Database
 //
 //  Created by Daniel Pratt on 11/2/18.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-class TMDBNowPlayingViewController: UIViewController {
+class TMDBPopularViewController: UIViewController {
     
     // MARK: - IBOutlets
     
-    @IBOutlet weak var nowPlayingTableView: UITableView!
+    @IBOutlet weak var popularTableView: UITableView!
     
     // MARK: - Class Properties
     
@@ -25,35 +25,35 @@ class TMDBNowPlayingViewController: UIViewController {
         super.viewWillAppear(animated)
         cancelRequest = false
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        loadNowPlayingData()
-    }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         cancelRequest = true
     }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        loadPopularData()
+    }
     
     // MARK: - Function to load data
     
-    private func loadNowPlayingData(onPage page: Int = 1) {
+    private func loadPopularData(onPage page: Int = 1) {
         guard !cancelRequest else { return }
-        let _ = client.taskForGETMethod(Methods.NowPlaying, parameters: [ParameterKeys.Page: page as AnyObject]) { (data, error) in
+        let _ = client.taskForGETMethod(Methods.Popular, parameters: [ParameterKeys.Page: page as AnyObject]) { (data, error) in
             if error == nil, let jsonData = data {
                 let result = Result.decode(jsonData: jsonData)
                 if let movieResults = result?.results {
                     self.movies += movieResults
                     
                     DispatchQueue.main.async {
-                        self.nowPlayingTableView.reloadData()
+                        guard !self.cancelRequest else { return }
+                        self.popularTableView.reloadData()
                     }
                 }
                 
                 if let totalPages = result?.total_pages, page < totalPages {
-                    guard !self.cancelRequest else { return }
-                    self.loadNowPlayingData(onPage: page + 1)
+                    self.loadPopularData(onPage: page + 1)
                 }
                 
                 
@@ -61,9 +61,9 @@ class TMDBNowPlayingViewController: UIViewController {
                 print("Retry after: \(retry) seconds")
                 DispatchQueue.main.async {
                     Timer.scheduledTimer(withTimeInterval: Double(retry), repeats: false, block: { (_) in
-                        print("~>Retrying now.")
                         guard !self.cancelRequest else { return }
-                        self.loadNowPlayingData(onPage: page)
+                        print("~>Retrying now.")
+                        self.loadPopularData(onPage: page)
                         return
                     })
                 }
@@ -73,18 +73,18 @@ class TMDBNowPlayingViewController: UIViewController {
             }
         }
     }
-
+    
 }
 
-extension TMDBNowPlayingViewController: UITableViewDelegate, UITableViewDataSource {
+extension TMDBPopularViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellNowPlaying", for: indexPath) as? TMDBMovieTableViewCell else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cellNowPlaying", for: indexPath) as UITableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellPopular", for: indexPath) as? TMDBMovieTableViewCell else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cellPopular", for: indexPath) as UITableViewCell
             cell.textLabel?.text = "Unable to load movie."
             return cell
         }

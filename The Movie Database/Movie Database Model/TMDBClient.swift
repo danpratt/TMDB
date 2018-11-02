@@ -17,6 +17,8 @@ class TMDBClient {
     
     func taskForGETMethod(_ method: String, parameters: [String:AnyObject], completionHandlerForGET: @escaping (_ result: Data?, _ error: NSError?) -> Void) -> URLSessionDataTask {
         
+        session.invalidateAndCancel()
+        
         // Setup request
         var parametersWithApiKey = parameters
         parametersWithApiKey[ParameterKeys.ApiKey] = API.Key as AnyObject?

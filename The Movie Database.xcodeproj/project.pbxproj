@@ -18,6 +18,10 @@
 		651A0A9D218CAC4A009E3AC4 /* TMDBMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651A0A9C218CAC4A009E3AC4 /* TMDBMovie.swift */; };
 		651A0A9F218CB0FE009E3AC4 /* TMDBClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651A0A9E218CB0FE009E3AC4 /* TMDBClient.swift */; };
 		651A0AA2218CC53A009E3AC4 /* TMDBMovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651A0AA1218CC53A009E3AC4 /* TMDBMovieTableViewCell.swift */; };
+		651A0AA4218CE3A8009E3AC4 /* TMDBPopularViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651A0AA3218CE3A8009E3AC4 /* TMDBPopularViewController.swift */; };
+		651A0AA6218CE5CB009E3AC4 /* TMDBTopRatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651A0AA5218CE5CB009E3AC4 /* TMDBTopRatedViewController.swift */; };
+		651A0AA8218CE5D9009E3AC4 /* TMDBUpcomingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651A0AA7218CE5D9009E3AC4 /* TMDBUpcomingViewController.swift */; };
+		651A0AAA218CEE59009E3AC4 /* TMDBMovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651A0AA9218CEE59009E3AC4 /* TMDBMovieDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,10 @@
 		651A0A9C218CAC4A009E3AC4 /* TMDBMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBMovie.swift; sourceTree = "<group>"; };
 		651A0A9E218CB0FE009E3AC4 /* TMDBClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBClient.swift; sourceTree = "<group>"; };
 		651A0AA1218CC53A009E3AC4 /* TMDBMovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBMovieTableViewCell.swift; sourceTree = "<group>"; };
+		651A0AA3218CE3A8009E3AC4 /* TMDBPopularViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBPopularViewController.swift; sourceTree = "<group>"; };
+		651A0AA5218CE5CB009E3AC4 /* TMDBTopRatedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBTopRatedViewController.swift; sourceTree = "<group>"; };
+		651A0AA7218CE5D9009E3AC4 /* TMDBUpcomingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBUpcomingViewController.swift; sourceTree = "<group>"; };
+		651A0AA9218CEE59009E3AC4 /* TMDBMovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBMovieDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +155,10 @@
 			children = (
 				651A0AA0218CC515009E3AC4 /* Table View Cell */,
 				651A0A97218CA8D4009E3AC4 /* TMDBNowPlayingViewController.swift */,
+				651A0AA3218CE3A8009E3AC4 /* TMDBPopularViewController.swift */,
+				651A0AA5218CE5CB009E3AC4 /* TMDBTopRatedViewController.swift */,
+				651A0AA7218CE5D9009E3AC4 /* TMDBUpcomingViewController.swift */,
+				651A0AA9218CEE59009E3AC4 /* TMDBMovieDetailViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -300,11 +312,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				651A0AA6218CE5CB009E3AC4 /* TMDBTopRatedViewController.swift in Sources */,
 				651A0A9F218CB0FE009E3AC4 /* TMDBClient.swift in Sources */,
 				651A0A9B218CA988009E3AC4 /* TMDBConstants.swift in Sources */,
+				651A0AAA218CEE59009E3AC4 /* TMDBMovieDetailViewController.swift in Sources */,
 				651A0A9D218CAC4A009E3AC4 /* TMDBMovie.swift in Sources */,
 				651A0AA2218CC53A009E3AC4 /* TMDBMovieTableViewCell.swift in Sources */,
 				651A0A66218C95B9009E3AC4 /* AppDelegate.swift in Sources */,
+				651A0AA8218CE5D9009E3AC4 /* TMDBUpcomingViewController.swift in Sources */,
+				651A0AA4218CE3A8009E3AC4 /* TMDBPopularViewController.swift in Sources */,
 				651A0A98218CA8D4009E3AC4 /* TMDBNowPlayingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

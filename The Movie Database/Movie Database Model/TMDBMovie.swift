@@ -40,7 +40,6 @@ struct Result: Codable {
     
     static func decode(jsonData: Data) -> Result? {
         let decoder = JSONDecoder()
-        print("~>Trying to decode")
         do {
             let result = try decoder.decode(Result.self, from: jsonData)
             return result
